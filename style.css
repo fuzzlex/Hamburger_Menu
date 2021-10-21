@@ -20,11 +20,17 @@ body{
     width: 20rem;
     height: 100vh;
     background-color: antiquewhite;
-    float: right;
+    position: fixed;
+    right: -350px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border-radius: 60% 0px 0px 40%;
+    transition: 0.8s;
+}
+.change {
+    right: 0px;
 }
 .hamburger-menu{
     width: 30px;
@@ -41,6 +47,17 @@ body{
     width: 30px;
     height: 3px;
     background-color: orangered;
+    transition: 0.8s;
+}
+.change .line1{
+    transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+.change .line2{
+    opacity: 0;
+}
+.change .line3{
+    transform: rotateZ(405deg) translate(-8px ,-6px);
+    
 }
 
 .nav-list{
@@ -54,6 +71,7 @@ body{
     letter-spacing: 2px;
     position: relative;
     padding: 3px 0px;
+
 }
 
 .nav-link::after,
@@ -64,10 +82,18 @@ body{
     height: 1px;
     background-color: brown;
     left: 0;
+    transform: scaleX(0);
+    transition: transform 0.5s;
 }
 .nav-link::after{
     bottom: 0;
+    transform-origin: left;
 }
 .nav-link::before{
     top: 0;
+    transform-origin: right;
+}
+.nav-link:hover::after,
+.nav-link:hover::before{
+    transform: scaleX(1);
 }
